@@ -45,8 +45,8 @@ class Acsii {
                 // create new Cell
                 if( alpha > 0 ) {
                     const color = `rgb(${red}, ${green}, ${blue})`;
-                    const averageColorValue = (red + green + blue)/3;
-                    const symbol = this.convertToSymbol(averageColorValue);
+                    const grayScale = (red + green + blue) / 3;
+                    const symbol = this.convertToSymbol(grayScale);
                     this.cells.push(new Cell(x, y, symbol, color));
                 }
 
@@ -58,20 +58,10 @@ class Acsii {
         this.cells.forEach(c => c.draw());
     }
     convertToSymbol(g) {
-        if( g > 250 ) return '@';
-        else if( g > 240 ) return '*';
-        else if( g > 220 ) return '+';
-        else if( g > 200 ) return '#';
-        else if( g > 180 ) return '&';
-        else if( g > 160 ) return '%';
-        else if( g > 140) return '_';
-        else if( g > 120 ) return ':';
-        else if( g > 100 ) return '$';
-        else if( g > 80 ) return '/';
-        else if( g > 60 ) return '-';
-        else if( g > 40 ) return 'X';
-        else if( g > 20 ) return 'W';
-        else return '';
+        const grayRamp = " .:-=+*#%@".split("");
+        const rampLength = grayRamp.length;
+
+        return grayRamp[Math.ceil(((rampLength - 1) * g) / 255)];
     }
 }
 
