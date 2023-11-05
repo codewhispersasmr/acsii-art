@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#canvas {
+    max-height: 900px;
+    width: 600px;
+    padding: 20px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#file {
+    border: 1px solid #fff;
+    padding: 16px;
+    border-radius: 5px;
+    color: #fff;
+    margin-bottom: 20px;
+    width: 600px;
+}
+
+#size {
+    width: 600px;
+}
